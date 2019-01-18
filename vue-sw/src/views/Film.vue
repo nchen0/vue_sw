@@ -1,7 +1,8 @@
 <template>
   <div>
-    <li>{{film.title}}</li>
-    <Detail v-bind:film="film"></Detail>
+    <li>
+      <router-link :to="{name: 'film', params: {id:film.id} }">{{ film.title }}</router-link>
+    </li>
   </div>
 </template>
 

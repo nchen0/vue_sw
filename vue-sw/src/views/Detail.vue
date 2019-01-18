@@ -9,14 +9,26 @@
     </p>
 
     <p>{{film.opening_crawl}}</p>
-
     <router-link to="/">Back</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["film"]
+  data() {
+    return {
+      film: {}
+    };
+  },
+  created: function() {
+    console.log("params.id: ", this.$route);
+    fetch("https://swapi.co/api/films/" + this.$route.params.id)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.film = res;
+      });
+  }
 };
 </script>
 

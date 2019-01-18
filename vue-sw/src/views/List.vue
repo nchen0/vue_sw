@@ -9,9 +9,11 @@
 <script>
 import axios from "axios";
 import Film from "./Film.vue";
+import Detail from "./Detail.vue";
 export default {
   components: {
-    Film: Film
+    Film: Film,
+    Detail
   },
   data() {
     return {
