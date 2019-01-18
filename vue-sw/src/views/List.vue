@@ -1,10 +1,18 @@
 <template>
-  <div>List</div>
+  <div>
+    <div v-for="film in films">
+      <Film v-bind:film="film"/>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import Film from "./Film.vue";
 export default {
+  components: {
+    Film: Film
+  },
   data() {
     return {
       films: []
@@ -15,7 +23,6 @@ export default {
       /*
 			there is no "id" field, just a URL one - so let's set it manually
 			*/
-
       this.films = res.data.results.map(film => {
         let parts = film.url.split("/");
         film.id = parts[parts.length - 2];
