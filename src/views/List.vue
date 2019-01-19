@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Film from "./Film.vue";
 import Detail from "./Detail.vue";
 export default {
@@ -16,21 +15,10 @@ export default {
     Detail
   },
   data() {
-    return {
-      films: []
-    };
+    return {};
   },
   created: function() {
-    axios.get("https://swapi.co/api/films").then(res => {
-      /*
-			there is no "id" field, just a URL one - so let's set it manually
-			*/
-      this.films = res.data.results.map(film => {
-        let parts = film.url.split("/");
-        film.id = parts[parts.length - 2];
-        return film;
-      });
-    });
+    this.$store.dispatch("getFilms");
   }
 };
 </script>
