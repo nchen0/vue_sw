@@ -17,6 +17,11 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    films() {
+      return this.$store.state.films;
+    }
+  },
   created: function() {
     this.$store.dispatch("getFilms");
   }

@@ -15,7 +15,6 @@ export const store = new Vuex.Store({
   actions: {
     getFilms: function(context) {
       axios.get("https://swapi.co/api/films").then(res => {
-        console.log("res is: ", res);
         context.commit("getFilms", res.data.results);
       });
     }

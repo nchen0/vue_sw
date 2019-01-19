@@ -1,7 +1,7 @@
 <template>
   <div>
     <li>
-      <router-link :to="{name: 'film', params: {id:film.id} }">{{ film.title }}</router-link>
+      <router-link :to="{name: 'film', params: {id:film.url.split('/')[5]} }">{{ film.title }}</router-link>
     </li>
   </div>
 </template>

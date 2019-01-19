@@ -17,17 +17,12 @@
 export default {
   data() {
     return {
-      film: {}
+      film: ""
     };
   },
+
   created: function() {
-    console.log("params.id: ", this.$route);
-    fetch("https://swapi.co/api/films/" + this.$route.params.id)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        this.film = res;
-      });
+    this.film = this.$store.state.films[this.$route.params.id];
   }
 };
 </script>
